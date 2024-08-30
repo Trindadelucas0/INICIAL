@@ -76,10 +76,14 @@ a {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slid-back .70s;
 }
 .light #switch button {
-  right: 0;
-  left: initial;
+ animation: slide-in .7s forwards;
+}
+#switch button:hover{
+  outline: 8px solid var(--highlight-color);
 }
 #switch span {
   display: block;
@@ -156,5 +160,20 @@ footer {
   }
   .light{
     --bg-url: url(bg-desktop-light.jpg);
+  }
+}
+/*ANIMAÇÕES*/
+@keyframes slide-in{
+  from{
+    left: 0;
+  }to{
+    left:50%;
+  }
+}
+@keyframes slid-back{
+  from{
+    left: 50%;
+  }to{
+    left: 0;
   }
 }
