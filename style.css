@@ -12,6 +12,7 @@
   --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bg-url: url(moon-stars.svg);
+  --cor-letra-hover:rgba(84, 190, 190, 0.534)
 }
 
 .light {
@@ -95,6 +96,7 @@ a {
 
 #switch button:hover {
   outline: 8px solid var(--highlight-color);
+  
 }
 
 #switch span {
@@ -139,6 +141,7 @@ ul li a {
 ul li a:hover {
   background: var(--surface-color-hover);
   border: 1.5px solid var(--text-color);
+  color:var(--cor-letra-hover);
 }
 
 /*social links*/
