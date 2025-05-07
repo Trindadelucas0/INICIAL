@@ -1,73 +1,171 @@
+/* ==========================================================================
+   Reset e Configurações Base
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ==========================================================================
+   Variáveis CSS - Cores, Gradientes e Efeitos
+   ========================================================================== */
 :root {
+  /* Paleta de Cores Principal */
   --text-color: white;
-  --bg-url: url(./img/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(255, 255, 255, 0.2);
+  --hover-text-color: #00b4d8; /* Azul mais vibrante */
+  
+  /* Gradientes Modernos - Esquema Masculino */
+  --gradient-1: linear-gradient(45deg, #0066cc, #00b4d8); /* Azul profissional */
+  --gradient-2: linear-gradient(45deg, #2a9d8f, #264653); /* Verde-azulado escuro */
+  --gradient-3: linear-gradient(45deg, #1a1a2e, #16213e); /* Azul escuro */
+  --gradient-4: linear-gradient(45deg, #0a192f, #112240); /* Azul marinho */
+  
+  /* Efeitos de Sombra */
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 2px 8px var(--shadow-color);
+  --shadow-md: 0 5px 15px var(--shadow-color);
+  --shadow-lg: 0 8px 32px var(--shadow-color);
+  
+  /* Backgrounds */
+  --bg-url: url(./img/bg-mobile.jpg);
   --switch-bg-url: url(moon-stars.svg);
-  --cor-letra-hover:rgba(84, 190, 190, 0.534)
+  
+  /* Transições e Animações */
+  --transition-speed: 0.3s;
+  --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+/* ==========================================================================
+   Tema Claro
+   ========================================================================== */
 .light {
-  --text-color: black;
+  --text-color: #1a1a2e; /* Azul escuro */
   --bg-url: url(./img/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(sun.svg);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --hover-text-color: #0066cc; /* Azul mais escuro para tema claro */
 }
 
+/* ==========================================================================
+   Estilos Base
+   ========================================================================== */
 body {
-  background: var(--bg-url);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-  height: 100vh;
+  background: var(--bg-url) no-repeat top center/cover;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+  transition: background var(--transition-speed);
+  position: relative;
+}
+
+/* Efeito de Overlay no Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+  z-index: -1;
 }
 
 body * {
-  font-family: "Inter", sans-serif;
-  color: var(--text-color);
+  font-family: inherit;
+  color: inherit;
 }
 
 a {
   text-decoration: none;
+  transition: all var(--transition-speed) var(--transition-bounce);
 }
 
+/* ==========================================================================
+   Layout Principal
+   ========================================================================== */
 #container {
   width: 100%;
   max-width: 588px;
-  margin: 56px auto 0px;
+  margin: 56px auto 0;
   padding: 0 24px;
+  animation: fadeIn 1s ease-in;
 }
 
-/*profile*/
+/* ==========================================================================
+   Seção de Perfil
+   ========================================================================== */
 #profile {
   text-align: center;
   padding: 24px;
+  position: relative;
+}
+
+/* Container da Imagem de Perfil */
+.profile-image-container {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  margin: 0 auto;
+  border-radius: 50%;
+  padding: 3px;
+  background: var(--gradient-3);
+  transition: all var(--transition-speed) var(--transition-bounce);
+}
+
+.profile-image-container:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
 }
 
 #profile img {
-  width: 112px;
-  border-radius: 53px 53px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all var(--transition-speed) var(--transition-bounce);
+  border: 3px solid var(--highlight-color);
+}
+
+#profile img:hover {
+  border-color: var(--hover-text-color);
 }
 
 #profile p {
   font-weight: 500;
   line-height: 24px;
-  margin-top: 8px;
+  margin-top: 16px;
+  font-size: 1.1em;
 }
 
-/*switch*/
+#profile p a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: var(--surface-color);
+  backdrop-filter: blur(4px);
+  transition: all var(--transition-speed) var(--transition-bounce);
+}
 
+#profile p a:hover {
+  background: var(--gradient-1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================================
+   Switch de Tema
+   ========================================================================== */
 #switch {
   position: relative;
   width: 64px;
@@ -80,78 +178,101 @@ a {
   background: white var(--switch-bg-url) no-repeat center;
   border: 0;
   border-radius: 50%;
-
   position: absolute;
   top: 50%;
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
-
-  animation: slid-back .70s;
+  cursor: pointer;
+  transition: all var(--transition-speed) var(--transition-bounce);
+  animation: slide-back 0.7s;
+  box-shadow: var(--shadow-sm);
 }
 
 .light #switch button {
-  animation: slide-in .7s forwards;
+  animation: slide-in 0.7s forwards;
 }
 
 #switch button:hover {
   outline: 8px solid var(--highlight-color);
-  
+  transform: translateY(-50%) scale(1.1);
 }
 
 #switch span {
   display: block;
   width: 64px;
   height: 24px;
-  backdrop-filter: var(--surface-color);
+  background: var(--surface-color);
   border: 1px solid var(--stroke-color);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
+  box-shadow: inset 0 2px 4px var(--shadow-color);
 }
 
-/*links*/
-ul {
+/* ==========================================================================
+   Links de Navegação
+   ========================================================================== */
+nav ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 10px 0px;
+  padding: 10px 0;
 }
 
-ul li a {
+nav ul li a {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  gap: 8px;
   padding: 16px 24px;
-
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
   border-radius: 10px;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-
-  text-decoration: none;
   font-weight: 500;
-  transition: background 0.2s;
-  /* transition: all 0.5s;*/
+  transition: all var(--transition-speed) var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
 }
 
-ul li a:hover {
-  background: var(--surface-color-hover);
+/* Efeito de Gradiente no Hover */
+nav ul li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-1);
+  transition: all var(--transition-speed);
+  z-index: -1;
+  opacity: 0;
+}
+
+nav ul li a:hover {
   border: 1.5px solid var(--text-color);
-  color:var(--cor-letra-hover);
+  color: var(--hover-text-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
-/*social links*/
+nav ul li a:hover::before {
+  left: 0;
+  opacity: 0.1;
+}
 
+/* ==========================================================================
+   Links Sociais
+   ========================================================================== */
 #social-links {
   display: flex;
   justify-content: center;
-
   padding: 24px 0;
   font-size: 24px;
+  gap: 16px;
 }
 
 #social-links a {
@@ -159,25 +280,59 @@ ul li a:hover {
   align-items: center;
   justify-content: center;
   padding: 16px;
-
-  transition: background 0.2;
   border-radius: 50%;
+  transition: all var(--transition-speed) var(--transition-bounce);
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
 }
 
-#social-links a :hover {
-  background: var(--highlight-color);
-
+#social-links a:hover {
+  background: var(--gradient-2);
+  transform: translateY(-2px) rotate(10deg);
+  box-shadow: var(--shadow-md);
 }
 
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
 footer {
   padding: 24px 0;
   text-align: center;
   font-size: 14px;
+  position: relative;
 }
 
-/*media queries*/
+/* Linha Decorativa */
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: var(--gradient-1);
+  border-radius: 2px;
+}
 
-@media (min-width:700px) {
+footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all var(--transition-speed) var(--transition-bounce);
+}
+
+footer a:hover {
+  background: var(--surface-color);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (min-width: 700px) {
   :root {
     --bg-url: url(./img/bg-desktop.jpg);
   }
@@ -187,23 +342,32 @@ footer {
   }
 }
 
-/*ANIMAÇÕES*/
+/* ==========================================================================
+   Animações
+   ========================================================================== */
 @keyframes slide-in {
-  from {
-    left: 0;
-  }
-
-  to {
-    left: 50%;
-  }
+  from { left: 0; }
+  to { left: 50%; }
 }
 
-@keyframes slid-back {
-  from {
-    left: 50%;
-  }
+@keyframes slide-back {
+  from { left: 50%; }
+  to { left: 0; }
+}
 
-  to {
-    left: 0;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Efeitos de Glassmorphism
+   ========================================================================== */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-lg);
+  border-radius: 16px;
 }

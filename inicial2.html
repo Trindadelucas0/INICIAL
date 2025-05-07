@@ -1,80 +1,155 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-
-
+<!-- ==========================================================================
+     Cabeçalho - Meta tags e links
+     ========================================================================== -->
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Meta tags básicas -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projetos e aplicações de Lucas Rodrigues">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Preconexão com fontes externas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
-    <title>Inical</title>
+    
+    <title>Projetos - Lucas Rodrigues</title>
 </head>
 
 <body>
-    <div id="container">
-        <div id="profile">
-            <img src="./img/B.jpg" alt="foto">
-            <p><a href="https://www.instagram.com/luca.srodr1gu3s?igsh=MWJwZHZhY3E3bGQ2dA=="
-                    target="_blank">@Iuca.srodr1gu3s</a> <ion-icon name="logo-instagram"></ion-icon></p>
-        </div>
-        <div id="switch" onclick="toggleMode()">
-            <button>
+    <!-- ==========================================================================
+         Container Principal
+         ========================================================================== -->
+    <main id="container" class="glass">
+        <!-- Seção de Perfil -->
+        <section id="profile">
+            <div class="profile-image-container">
+                <img src="./img/B.jpg" 
+                     alt="Foto de perfil de Lucas Rodrigues" 
+                     width="112" 
+                     height="112"
+                     loading="lazy">
+            </div>
+            <p>
+                <a href="https://www.instagram.com/luca.srodr1gu3s" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    @luca.srodr1gu3s
+                    <ion-icon name="logo-instagram" aria-hidden="true"></ion-icon>
+                </a>
+            </p>
+        </section>
 
-            </button>
-            <span>
-
-            </span>
+        <!-- Switch de Tema -->
+        <div id="switch" 
+             role="switch" 
+             aria-label="Alternar tema" 
+             onclick="toggleMode()">
+            <button aria-label="Alternar tema claro/escuro"></button>
+            <span></span>
         </div>
-        <ul>
-            <li>
-                <a href="https://trindadelucas0.github.io/lampada/"
-                    target="_blank">LÂMPADA</a>
-            </li>
-            <li>
-                <a href="https://trindadelucas0.github.io/Previsao/previsao.html" target="_blank">PREVISÃO</a>
-            </li>
-            <li>
-                <a href="https://trindadelucas0.github.io/conversor/" target="_blank">CONVERSOR  . BRL -> USD</a>
-            </li>
-            <li>
-                <a href="https://trindadelucas0.github.io/Calculadora/"
-                    target="_blank">CALCULADORA</a>
-            </li>
-            <li>
-                <a href="https://trindadelucas0.github.io/relogio/relogio%20dinamico/index.html"
-                    target="_blank">RELOGIO</a>
-            </li>
-            <li>
-                <a href="https://trindadelucas0.github.io/INICIAL/inicial.html"
-                    target="_blank">VOLTAR</a>
-            </li>
-        </ul>
+
+        <!-- Menu de Projetos -->
+        <nav>
+            <ul>
+                <li>
+                    <a href="https://trindadelucas0.github.io/lampada/" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <ion-icon name="bulb-outline"></ion-icon>
+                        LÂMPADA
+                    </a>
+                </li>
+                <li>
+                    <a href="https://trindadelucas0.github.io/Previsao/previsao.html" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <ion-icon name="partly-sunny-outline"></ion-icon>
+                        PREVISÃO
+                    </a>
+                </li>
+                <li>
+                    <a href="https://trindadelucas0.github.io/conversor/" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <ion-icon name="cash-outline"></ion-icon>
+                        CONVERSOR BRL -> USD
+                    </a>
+                </li>
+                <li>
+                    <a href="https://trindadelucas0.github.io/Calculadora/" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <ion-icon name="calculator-outline"></ion-icon>
+                        CALCULADORA
+                    </a>
+                </li>
+                <li>
+                    <a href="https://trindadelucas0.github.io/relogio/relogio%20dinamico/index.html" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <ion-icon name="time-outline"></ion-icon>
+                        RELÓGIO
+                    </a>
+                </li>
+                <li>
+                    <a href="https://trindadelucas0.github.io/INICIAL/inicial.html" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <ion-icon name="arrow-back-outline"></ion-icon>
+                        VOLTAR
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Links Sociais -->
         <div id="social-links">
-            <a href="https://github.com/Trindadelucas0" target="_blank">
+            <a href="https://github.com/Trindadelucas0" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="GitHub">
                 <ion-icon name="logo-github"></ion-icon>
             </a>
-            <a href="https://www.instagram.com/luca.srodr1gu3s?igsh=MWJwZHZhY3E3bGQ2dA==" target="_blank">
+            <a href="https://www.instagram.com/luca.srodr1gu3s" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="Instagram">
                 <ion-icon name="logo-instagram"></ion-icon>
             </a>
-            <a href="https://www.google.com.br/?hl=pt-BR" target="_blank">
+            <a href="https://www.google.com.br/?hl=pt-BR" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="LinkedIn">
                 <ion-icon name="logo-linkedin"></ion-icon>
             </a>
-            <a href="https://x.com/trindadelucas84" target="_blank">
+            <a href="https://x.com/trindadelucas84" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="Twitter">
                 <ion-icon name="logo-twitter"></ion-icon>
             </a>
         </div>
-    </div>
+    </main>
+
+    <!-- Rodapé -->
     <footer>
-        <a href="https://github.com/Trindadelucas0" target="_blank">&copyLucasrt</a> <ion-icon
-            name="rocket-outline"></ion-icon>
+        <a href="https://github.com/Trindadelucas0" 
+           target="_blank" 
+           rel="noopener noreferrer">
+            &copy; Lucasrt
+            <ion-icon name="rocket-outline" aria-hidden="true"></ion-icon>
+        </a>
     </footer>
+
+    <!-- Scripts -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"> </script>
-    <script src="script.js">
-
-    </script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
